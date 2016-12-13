@@ -15,7 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
     exclude = ('created_at', 'updated_at')
 
     # sets up slug to be generated from product name
-    prepopulated_fields = {'slug', ('name',)}
+    prepopulated_fields = {'slug': ('name',)}
 
 admin.site.register(Product, ProductAdmin)
 
@@ -29,6 +29,6 @@ class CategoryAdmin(admin.ModelAdmin):
     exclude = ('created_at', 'updated_at')
 
     # sets up slug to be generated from product name
-    prepopulated_fields = {'slug', ('name',)}
+    prepopulated_fields = {'slug': ('name',)}
 
 admin.site.register(Category, CategoryAdmin)
