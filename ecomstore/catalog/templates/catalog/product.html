@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
+<h1>{{ category }}</h1>
 
+<ul>
+{% for product in products %}
+    <li>{{ product }}</li>
+{%  endfor %}
+</ul>
 </body>
 </html>

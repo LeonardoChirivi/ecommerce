@@ -12,3 +12,13 @@ def index(request):
         'categories': categories,
     }
     return render(request, 'catalog/index.html', context)
+
+
+def product_view(request, category_name, category_id):
+    """View for showing all products of a given category"""
+    products = Product.objects.filter(pk=category_id)
+    context = {
+        'category': category_name,
+        'products': products,
+    }
+    return render(request, 'catalog/product.html', context)

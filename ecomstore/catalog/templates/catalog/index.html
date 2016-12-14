@@ -10,7 +10,7 @@
 
 <ul>
 {% for category in categories %}
-    <li><a href="{% url 'catalog:index' category.id %}">{{ category }}</a></li>
+    <li><a href="{% url 'product_view' category.name category.id %}">{{ category }}</a></li>
 {% endfor %}
 </ul>
 </body>
