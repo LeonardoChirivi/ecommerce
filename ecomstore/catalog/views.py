@@ -1,8 +1,14 @@
 from django.shortcuts import (render,
                               get_object_or_404,
-                              render_to_response)
+                              HttpResponse)
 
-def index(request, template_name='catalog/index.html'):
-    page_title = 'Musical Instruments and Sheet Music for Musicians'
-    return render_to_response()
+from .models import Product, Category
 
+
+def index(request):
+    """View for showing catalogs in index page"""
+    categories = Category.objects.all()
+    context = {
+        'categories': categories,
+    }
+    return render(request, 'catalog/index.html', context)

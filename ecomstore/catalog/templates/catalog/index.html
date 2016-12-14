@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
 </head>
 <body>
-{% extends "catalog.html" %}
+<h1><strong>Welcome in ecommerce store</strong></h1>
+<h3>Categories</h3>
 
-{%block content %}
-<h1>Welcome to Modern Musician!</h1>
-{% endblock %}
+<ul>
+{% for category in categories %}
+    <li><a href="{% url 'catalog:index' category.id %}">{{ category }}</a></li>
+{% endfor %}
+</ul>
 </body>
 </html>
