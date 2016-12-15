@@ -1,6 +1,6 @@
-from django.shortcuts import (render,
-                              get_object_or_404,
-                              HttpResponse)
+from django.http import HttpResponseNotFound
+from django.shortcuts import render
+from django.template import loader
 
 from .models import Product, Category
 
@@ -18,7 +18,8 @@ def product_view(request, category_name, category_id):
     """View for showing all products of a given category"""
     names = [c.name for c in Category.objects.all()]
     if category_name not in names:
-        return render(request, 'catalog/404Page.html')
+        template = loader.get_template('catalog/404Page.html')
+        return HttpResponseNotFound(template.render(request))
     else:
         products = Product.objects.filter(categories=category_id)
         context = {
