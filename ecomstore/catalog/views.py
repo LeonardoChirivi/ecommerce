@@ -16,7 +16,7 @@ def index(request):
 
 def product_view(request, category_name, category_id):
     """View for showing all products of a given category"""
-    products = Product.objects.filter(pk=category_id)
+    products = Product.objects.filter(categories=category_id)
     context = {
         'category': category_name,
         'products': products,
