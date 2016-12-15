@@ -16,9 +16,13 @@ def index(request):
 
 def product_view(request, category_name, category_id):
     """View for showing all products of a given category"""
-    products = Product.objects.filter(categories=category_id)
-    context = {
-        'category': category_name,
-        'products': products,
-    }
-    return render(request, 'catalog/product.html', context)
+    names = [c.name for c in Category.objects.all()]
+    if category_name not in names:
+        return render(request, 'catalog/404Page.html')
+    else:
+        products = Product.objects.filter(categories=category_id)
+        context = {
+            'category': category_name,
+            'products': products,
+        }
+        return render(request, 'catalog/product.html', context)
