@@ -1,0 +1,16 @@
+{% extends "catalog/index.html" %}
+
+{% block title %}catalog list{% endblock %}
+
+{% block content %}
+<!--menu page show all catgories-->
+<h1><strong>Welcome in ecommerce store</strong></h1>
+<h3>Categories</h3>
+
+<ul>
+{% for category in categories %}
+    <li><a href="{% url 'product_view' category.name category.id %}">{{ category }}</a></li>
+{% endfor %}
+</ul>
+<a href="{% url 'login' %}">Login</a>
+{% endblock %}

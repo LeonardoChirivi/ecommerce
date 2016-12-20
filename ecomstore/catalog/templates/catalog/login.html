@@ -1,0 +1,8 @@
+{% extends 'catalog/index.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+{{ form.as_p }}
+<a href="{% url 'index' %}">Back to home</a>
+{% endblock %}
