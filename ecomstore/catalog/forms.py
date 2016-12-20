@@ -11,10 +11,13 @@ class AddUserForm(forms.ModelForm):
 
     class Meta:
         model = User
+        help_texts = {
+            'username': None,
+        }
         fields = [
-            # 'First Name',
-            # 'Last Name',
-            # 'E-mail',
+            'first_name',
+            'last_name',
             'username',
+            'email',
             'password',
         ]

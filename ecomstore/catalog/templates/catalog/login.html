@@ -1,8 +1,11 @@
 {% extends 'catalog/index.html' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Add User{% endblock %}
 
 {% block content %}
+<form action="{% url 'add-user' %}" method="post">{% csrf_token %}
 {{ form.as_p }}
+    <input type="submit" value="Sign In">
+</form>
 <a href="{% url 'index' %}">Back to home</a>
 {% endblock %}

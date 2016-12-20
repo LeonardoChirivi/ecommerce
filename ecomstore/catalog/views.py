@@ -1,7 +1,8 @@
-from django.http import HttpResponseNotFound
+from django.http import HttpResponseNotFound, HttpResponse
 from django.shortcuts import render
 from django.template import loader
 from django.views.generic import View
+# from django.contrib.auth.decorators import login_required
 
 from .forms import AddUserForm
 from .models import Product, Category
@@ -16,6 +17,7 @@ def index(request):
     return render(request, 'catalog/catalog.html', context)
 
 
+# @login_required
 def product_view(request, category_name, category_id):
     """View for showing all products of a given category"""
     names = [c.name for c in Category.objects.all()]
@@ -40,4 +42,10 @@ class UserFormView(View):
         return render(request, self.template, {'form': form})
 
     def post(self, request):
-        pass
+        form = self.form_class(request.POST)
+
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+
+        return HttpResponse('ok lol')
