@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe1a71f2-e1ff-4898-ad55-762dc2b9b330" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ecomstore/catalog/templates/catalog/home.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ecomstore/catalog/templates/catalog/catalog.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ecomstore/catalog/templates/catalog/index.html" afterPath="$PROJECT_DIR$/ecomstore/catalog/templates/catalog/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecomstore/catalog/templates/catalog/404Page.html" afterPath="$PROJECT_DIR$/ecomstore/catalog/templates/catalog/404Page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecomstore/catalog/templates/catalog/login.html" afterPath="$PROJECT_DIR$/ecomstore/catalog/templates/catalog/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecomstore/catalog/templates/catalog/product.html" afterPath="$PROJECT_DIR$/ecomstore/catalog/templates/catalog/product.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ecomstore/catalog/views.py" afterPath="$PROJECT_DIR$/ecomstore/catalog/views.py" />
-    </list>
+    <list default="true" id="fe1a71f2-e1ff-4898-ad55-762dc2b9b330" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
