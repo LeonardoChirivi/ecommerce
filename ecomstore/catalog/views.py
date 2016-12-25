@@ -14,7 +14,7 @@ def index(request):
     context = {
         'categories': categories,
     }
-    return render(request, 'catalog/catalog.html', context)
+    return render(request, 'catalog/home.html', context)
 
 
 # @login_required
