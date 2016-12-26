@@ -7,10 +7,12 @@ from django.views.generic import View
 from .forms import AddUserForm
 from .models import Product, Category
 
+# categories for every view nav bar
+categories = Category.objects.all()
+
 
 def index(request):
     """View for showing catalogs in index page"""
-    categories = Category.objects.all()
     context = {
         'categories': categories,
     }
@@ -27,6 +29,7 @@ def product_view(request, category_name, category_id):
     else:
         products = Product.objects.filter(categories=category_id)
         context = {
+            'categories': categories,  # added
             'category': category_name,
             'products': products,
         }
@@ -35,7 +38,7 @@ def product_view(request, category_name, category_id):
 
 class UserFormView(View):
     form_class = AddUserForm
-    template = 'catalog/login.html'
+    template = 'catalog/registration.html'
 
     def get(self, request):
         form = self.form_class(None)
