@@ -13,7 +13,9 @@ categories = Category.objects.all()
 
 def index(request):
     """View for showing catalogs in index page"""
+    username = 'anonimo' if request.user.is_anonymous() else request.user.get_user_name()
     context = {
+        'username': username,
         'categories': categories,
     }
     return render(request, 'catalog/home.html', context)
