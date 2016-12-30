@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.template import loader
 from django.views.generic import View
 # from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from .forms import AddUserForm, LoginForm
 from .models import Product, Category
@@ -75,14 +75,11 @@ class UserFormView(View):
 
         if form.is_valid():
             user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
             user.save()
 
         return HttpResponse('ok lol')
 
 
-def user_login_view(request):
-    form_class = LoginForm
-    template = 'catalog/login-modal.html'
-
-    if request.method == 'POST':
-        pass
+def user_logut_view(request):
+    pass
