@@ -13,7 +13,7 @@ from .models import Product, Category
 categories = Category.objects.all()
 
 
-class index(View):
+class Index(View):
     """View for showing catalogs in index page"""
     form_class = LoginForm
     template = 'catalog/login-modal.html'
