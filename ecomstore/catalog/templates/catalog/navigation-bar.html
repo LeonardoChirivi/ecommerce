@@ -33,10 +33,13 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><p class="navbar-text" id="nome-utente">Benvenuto {{username}}</p></li>
+                <li><p class="navbar-text" id="nome-utente">Benvenuto {{ username }}</p></li>
                 <li><a href="#">Cart</a></li>
                 <li><a href="{% url 'add-user' %}">Sign Up</a></li>
-                <li><a  data-toggle="modal" href="#login-modal">Log in</a></li>
+                <li><a  data-toggle="modal" href="#login-modal">Log In</a></li>
+                {% if username != 'anonimo' %}
+                <li><a href="{% url 'user_logout' %}">Log Out</a></li>
+                {% endif %}
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

@@ -1,9 +1,10 @@
-from django.http import HttpResponseNotFound, HttpResponse
+from django.http import HttpResponseNotFound, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import loader
 from django.views.generic import View
 # from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from django.core.urlresolvers import reverse
 
 from .forms import AddUserForm, LoginForm
 from .models import Product, Category
@@ -81,5 +82,6 @@ class UserFormView(View):
         return HttpResponse('ok lol')
 
 
-def user_logut_view(request):
-    pass
+def user_logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')  # redirects to home
