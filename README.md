@@ -1,6 +1,6 @@
 # ecommerce
 
-Simple ecommerce site developed with [Django](https://www.djangoproject.com/){:target="_blank"}
+Simple ecommerce site developed with [Django](https://www.djangoproject.com/)
 
 ## Author
 Chirivi Leonardo
