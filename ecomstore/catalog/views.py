@@ -3,22 +3,46 @@ from django.shortcuts import render
 from django.template import loader
 from django.views.generic import View
 # from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
 
-from .forms import AddUserForm
+from .forms import AddUserForm, LoginForm
 from .models import Product, Category
 
 # categories for every view nav bar
 categories = Category.objects.all()
 
 
-def index(request):
+class index(View):
     """View for showing catalogs in index page"""
-    username = 'anonimo' if request.user.is_anonymous() else request.user.get_user_name()
-    context = {
-        'username': username,
-        'categories': categories,
-    }
-    return render(request, 'catalog/home.html', context)
+    form_class = LoginForm
+    template = 'catalog/login-modal.html'
+
+    def get(self, request):
+        username = 'anonimo' if request.user.is_anonymous() else request.user.get_username()
+        form = self.form_class(None)
+        context = {
+            'form': form,
+            'username': username,
+            'categories': categories,
+        }
+        return render(request, 'catalog/home.html', context)
+
+    def post(self, request):
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            form = self.form_class(None)
+            context = {
+                'form': form,
+                'username': username,
+                'categories': categories,
+            }
+            return render(request, 'catalog/home.html', context)
+        else:
+            return HttpResponse('wrong username or password')
 
 
 # @login_required
@@ -54,3 +78,11 @@ class UserFormView(View):
             user.save()
 
         return HttpResponse('ok lol')
+
+
+def user_login_view(request):
+    form_class = LoginForm
+    template = 'catalog/login-modal.html'
+
+    if request.method == 'POST':
+        pass

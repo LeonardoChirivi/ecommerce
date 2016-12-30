@@ -21,3 +21,17 @@ class AddUserForm(forms.ModelForm):
             'email',
             'password',
         ]
+
+
+class LoginForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        help_texts = {
+            'username': None,
+        }
+        fields = [
+            'username',
+            'password',
+        ]
