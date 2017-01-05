@@ -78,8 +78,10 @@ class UserFormView(View):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
             user.save()
-
-        return HttpResponse('ok lol')
+            login(request, user)  # login right away
+            return HttpResponseRedirect(reverse('index'))  # redirect to home page
+        else:
+            return HttpResponse('Data not valid')
 
 
 def user_logout_view(request):
