@@ -2,6 +2,57 @@
     color: #f00;
 }
 
+#home-title {
+    margin-top: -31px !important;
+}
+
+/* lowering the registration form */
 #registration-container {
     margin-top: 7%;
 }
+
+/* resizing images for carusel */
+.carousel img {
+    margin: auto;
+    min-width: 100%;
+    max-height: 420px;
+}
+
+/* removing shadow from glyphicons */
+.carousel-control.left,
+.carousel-control.right {
+   background-image:none !important;
+   filter:none !important;
+}
+
+/* positioning carousel glyphicons */
+.carousel-control.left .glyphicon {
+    left: 0;
+    margin-left: 0;
+}
+.carousel-control.right .glyphicon {
+    right: 0;
+    margin-right: 0;
+}
+
+/* adjusting carousel caption */
+.carousel-caption {
+    background-color: transparent;
+    position: static;
+    max-width: 550px;
+    padding: 0 20px;
+    margin-top: 200px;
+    bottom: 150px !important;
+    left: 0px !important;
+}
+.carousel-caption h1,
+    .carousel-caption .lead {
+    margin: 0;
+    line-height: 1.25;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+.carousel-caption .btn {
+    margin-top: 10px;
+}
+
