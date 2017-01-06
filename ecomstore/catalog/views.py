@@ -19,7 +19,7 @@ class Index(View):
     template = 'catalog/login-modal.html'
 
     def get(self, request):
-        username = 'anonimo' if request.user.is_anonymous() else request.user.get_username()
+        username = user_name(request)
         form = self.form_class(None)
         context = {
             'form': form,
@@ -54,8 +54,10 @@ def product_view(request, category_name, category_id):
         template = loader.get_template('catalog/404Page.html')
         return HttpResponseNotFound(template.render(request))
     else:
+        username = user_name(request)
         products = Product.objects.filter(categories=category_id)
         context = {
+            'username': username,
             'categories': categories,  # added
             'category': category_name,
             'products': products,
@@ -87,3 +89,7 @@ class UserFormView(View):
 def user_logout_view(request):
     logout(request)
     return HttpResponseRedirect('/')  # redirects to home
+
+
+def user_name(request):
+    return 'anonimo' if request.user.is_anonymous() else request.user.get_username()
